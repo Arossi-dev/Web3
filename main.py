@@ -21,7 +21,8 @@ RPC_URLS = [
 ]
 
 def conectar_bsc():
-    """Tenta conectar aos RPCs em sequência. Retorna Web3 conectado."""
+    #Conecta em sequencia, caso algum link falhe
+    
     for rpc in RPC_URLS:
         try:
             w3 = Web3(Web3.HTTPProvider(rpc, request_kwargs={'timeout': 5}))
