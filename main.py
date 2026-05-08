@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from web3 import Web3
 
 
-# Carrega variáveis do .env
+
 load_dotenv()
 
 WALLET_ADDRESS = os.getenv("WALLET_ADDRESS")
@@ -12,7 +12,7 @@ TOKEN_CONTRACT = os.getenv("TOKEN_CONTRACT")
 if not WALLET_ADDRESS or not TOKEN_CONTRACT:
     raise ValueError("Variáveis WALLET_ADDRESS e TOKEN_CONTRACT devem estar no .env")
 
-# Lista de RPCs públicos da BSC (com timeout)
+
 RPC_URLS = [
     "https://bsc-dataseed.binance.org/",
     "https://bsc-dataseed1.defibit.io/",
@@ -34,7 +34,7 @@ def conectar_bsc():
 
 def obter_saldo_token(w3, endereco_wallet, contrato_token):
     """Retorna saldo do token (float) e símbolo (string)."""
-    # ABI mínima para balanceOf e decimals
+    
     abi = [
         {
             "constant": True,
@@ -65,19 +65,19 @@ def obter_saldo_token(w3, endereco_wallet, contrato_token):
     return saldo_wei / 10**decimais, simbolo
 
 def main():
-    # Conecta
+    
     w3 = conectar_bsc()
     
-    # 1. Bloco atual
+    
     bloco = w3.eth.block_number
     print(f"Bloco atual da BSC: {bloco}")
     
-    # 2. Saldo BNB nativo
+    
     saldo_bnb_wei = w3.eth.get_balance(WALLET_ADDRESS)
     saldo_bnb = saldo_bnb_wei / 10**18
     print(f"Saldo de BNB da wallet {WALLET_ADDRESS}: {saldo_bnb:.6f} BNB")
     
-    # 3. Saldo do token
+    
     try:
         saldo_token, simbolo = obter_saldo_token(w3, WALLET_ADDRESS, TOKEN_CONTRACT)
         print(f"Saldo do token {simbolo} na mesma wallet: {saldo_token:.6f} {simbolo}")
