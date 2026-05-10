@@ -12,7 +12,7 @@ Pré-requisitos:
 
 -> Python Package Index (pip)
 
--> setuptolls v.81 <
+-> setuptolls < 81 
 
 -> Web3.py (biblioteca web3)
 
