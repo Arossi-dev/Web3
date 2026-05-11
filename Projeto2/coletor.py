@@ -46,7 +46,7 @@ def obter_saldo_token(w3, wallet_address, token_contract, simbolo):
         return None
 
 def coletar_e_salvar():
-    """Coleta saldos de todas as wallets e salva no banco."""
+    
     
     init_db()
     db = SessionLocal()
