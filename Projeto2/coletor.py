@@ -6,7 +6,7 @@ from config import RPC_URL, TOKEN_CONTRACT, TOKEN_SYMBOL, WALLETS
 from database import SessionLocal, init_db
 from models import Balance
 
-# ABI mínima para balanceOf e decimals
+
 TOKEN_ABI = [
     {
         "constant": True,
@@ -25,7 +25,7 @@ TOKEN_ABI = [
 ]
 
 def conectar_web3():
-    """Conecta ao RPC da BSC."""
+    
     w3 = Web3(Web3.HTTPProvider(RPC_URL))
     if not w3.is_connected():
         raise ConnectionError(f"Não foi possível conectar ao RPC: {RPC_URL}")
@@ -33,7 +33,7 @@ def conectar_web3():
     return w3
 
 def obter_saldo_token(w3, wallet_address, token_contract, simbolo):
-    """Retorna o saldo do token (float) ou None em caso de erro."""
+    
     try:
         contract = w3.eth.contract(address=token_contract, abi=TOKEN_ABI)
         decimals = contract.functions.decimals().call()
@@ -47,7 +47,7 @@ def obter_saldo_token(w3, wallet_address, token_contract, simbolo):
 
 def coletar_e_salvar():
     """Coleta saldos de todas as wallets e salva no banco."""
-    # Garantir que as tabelas existam
+    
     init_db()
     db = SessionLocal()
     w3 = conectar_web3()
