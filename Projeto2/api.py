@@ -10,11 +10,11 @@ from config import WALLETS, TOKEN_SYMBOL
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Inicialização (antigo on_event startup)
+    
     init_db()
     print("✅ Tabelas verificadas/criadas. API pronta!")
     yield
-    # Encerramento (antigo on_event shutdown)
+    
     print("🛑 Encerrando a aplicação...")
 
 app = FastAPI(
@@ -29,7 +29,7 @@ def get_latest(db: Session = Depends(get_db)):
     """
     Retorna os saldos mais recentes de todas as wallets monitoradas.
     """
-    # Subquery para obter o timestamp mais recente por wallet
+    
     subq = db.query(
         Balance.wallet_address,
         func.max(Balance.collected_at).label("latest_time")
@@ -58,7 +58,7 @@ def get_stats(db: Session = Depends(get_db)):
     """
     Estatísticas: wallet com maior saldo atual e variação percentual das últimas 24h.
     """
-    # 1. Maior saldo atual
+   
     subq = db.query(
         Balance.wallet_address,
         func.max(Balance.collected_at).label("latest_time")
@@ -75,7 +75,7 @@ def get_stats(db: Session = Depends(get_db)):
     
     maior = max(latest_balances, key=lambda x: x.balance)
     
-    # 2. Variação 24h para cada wallet
+   
     agora = datetime.utcnow()
     dia_atras = agora - timedelta(hours=24)
     detalhes = []
