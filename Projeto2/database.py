@@ -7,11 +7,11 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def init_db():
-    """Cria todas as tabelas definidas nos modelos."""
+    
     Base.metadata.create_all(bind=engine)
 
 def get_db():
-    """Retorna uma sessão de banco (para uso na API)."""
+    
     db = SessionLocal()
     try:
         yield db
