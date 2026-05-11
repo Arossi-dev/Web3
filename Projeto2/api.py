@@ -26,9 +26,7 @@ app = FastAPI(
 
 @app.get("/balances/latest")
 def get_latest(db: Session = Depends(get_db)):
-    """
-    Retorna os saldos mais recentes de todas as wallets monitoradas.
-    """
+    
     
     subq = db.query(
         Balance.wallet_address,
@@ -45,9 +43,7 @@ def get_latest(db: Session = Depends(get_db)):
 
 @app.get("/balances/{wallet}/history")
 def get_history(wallet: str, limit: int = 100, db: Session = Depends(get_db)):
-    """
-    Retorna o histórico de uma wallet específica (últimos 'limit' registros).
-    """
+    
     history = db.query(Balance).filter(Balance.wallet_address == wallet).order_by(Balance.collected_at.desc()).limit(limit).all()
     if not history:
         raise HTTPException(status_code=404, detail="Wallet não encontrada")
@@ -55,9 +51,7 @@ def get_history(wallet: str, limit: int = 100, db: Session = Depends(get_db)):
 
 @app.get("/stats")
 def get_stats(db: Session = Depends(get_db)):
-    """
-    Estatísticas: wallet com maior saldo atual e variação percentual das últimas 24h.
-    """
+  
    
     subq = db.query(
         Balance.wallet_address,
