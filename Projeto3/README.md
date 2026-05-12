@@ -1,17 +1,17 @@
 Projeto 3 – Dashboard Grafana
 
-Este projeto contem o dashboard do Grafana que visualiza os dados do Projeto 2.
+Esse projeto contém o dashboard do Grafana que visualiza os dados do Projeto 2.
 
 Arquivos inclusos:
 
--> dashboard.json - Arquivo de exportacao do dashboard
+-> dashboard.json - Arquivo de exportação do dashboard
 -> dashboard-print.png - Print da tela do dashboard funcionando
 
  Pré-requisitos:
 
 -> Grafana instalado e rodando em http://localhost:3000
 -> PostgreSQL rodando com o banco monitor populado (Projeto 2)
--> Datasource PostgreSQL ja configurado no Grafana apontando para o banco monitor
+-> Datasource PostgreSQL já configurado no Grafana apontando para o banco monitor
 
 Como importar o dashboard:
 
