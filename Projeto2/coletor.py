@@ -6,6 +6,11 @@ from config import RPC_URL, TOKEN_CONTRACT, TOKEN_SYMBOL, WALLETS
 from database import SessionLocal, init_db
 from models import Balance
 
+RPC_URLS = [
+    "https://bsc-dataseed1.defibit.io/",
+    "https://bsc-dataseed1.ninicoin.io/",
+    "https://bsc.publicnode.com/"
+    ]
 
 TOKEN_ABI = [
     {
