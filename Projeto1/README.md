@@ -59,7 +59,7 @@ Pré-requisitos:
 
  python3 -m venv venv && source venv/bin/activate        # (inicializa o venv)
 
- acesse a pasta do projeto (nesse caso, pasta web3 > Projeto1)
+ acesse a pasta do projeto (nesse caso:  /web3/Projeto1)
 
  pip install -r requirement.txt    #(dentro da pasta do projeto para instalar o que é requerido)
 
