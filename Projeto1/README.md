@@ -1,6 +1,6 @@
-# Web3
+# Web3 
 
-                                                Projeto 1 - Consulta de saldos na BSC com web3
+   Projeto 1 - Consulta de saldos na BSC com web3
 
 
 
@@ -29,9 +29,9 @@ Pré-requisitos:
 
  sudo apt install python3-pip (instalação do pip)
 
- pip install setuptools==80.10.2 (instalar setup, necessário ser v.81<)
+ pip install setuptools==80.10.2 (instalar setuptools, necessário ser < 81)
 
- pip install web3 (instalar biblioteca)
+ pip install web3 (instalar biblioteca web3)
 
  pip install iphyton (instalar iphyton Opcional**)
 
@@ -42,7 +42,7 @@ Pré-requisitos:
 
  Iniciar web3 com "web3.py"
 
- 1. Copie `.env.example` para `.env`
+ 1. Renomeie  `.env.example` para `.env`
 
  2. Preencha as variáveis:
 
@@ -59,7 +59,7 @@ Pré-requisitos:
 
  python3 -m venv venv && source venv/bin/activate        # (inicializa o venv)
 
- acesse a pasta do projeto (nesse caso, pasta web3)
+ acesse a pasta do projeto (nesse caso, pasta web3 > Projeto1)
 
  pip install -r requirement.txt    #(dentro da pasta do projeto para instalar o que é requerido)
 
