@@ -80,6 +80,15 @@ GRANT ALL PRIVILEGES ON DATABASE monitor TO meuuser;
 
 (Nota: A porta padrão do PostgreSQL e 5432, mas o seu cluster ativo pode estar em 5433. Ajuste conforme sua instalacao.)
 
+Estrutura:
+
+[Coletor.py] -> [RPC BSC] -> [PostgreSQL] <- [API FastAPI] <- [Cliente/Swagger]
+     │              │              │               │
+     │              │              │               └── Endpoints REST
+     │              │              └── Tabela balances
+     │              └── Fallback entre múltiplos RPCs
+     └── Execução manual ou agendada
+
 
 
 5. Configure as variaveis de ambiente:
