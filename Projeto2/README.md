@@ -76,7 +76,7 @@ Dentro do psql, execute:
 CREATE USER meuuser WITH PASSWORD 'minhasenha';
 CREATE DATABASE monitor OWNER meuuser;
 GRANT ALL PRIVILEGES ON DATABASE monitor TO meuuser;
-\q
+
 
 (Nota: A porta padrão do PostgreSQL e 5432, mas o seu cluster ativo pode estar em 5433. Ajuste conforme sua instalacao.)
 
