@@ -25,13 +25,17 @@ Esse projeto coleta saldos de tokens BEP-20 de carteiras públicas, armazena os 
 -> Uvicorn - servidor ASGI
 -> python-dotenv - gerenciamento de variaveis de ambiente
 
+
  Arquitetura do sistema:
 
 Coletor -> RPC BSC -> PostgreSQL <- API FastAPI <- Cliente/Swagger
 
 -> O coletor é um script Python que consulta a blockchain via web3.py e insere os saldos no banco de dados
+
 -> O banco guarda todas as coletas com timestamp, permitindo consultas históricas
+
 -> A API expõe esses dados atraves de endpoints REST, lendo diretamente do banco
+
 
  Pre-requisitos:
 
@@ -39,6 +43,7 @@ Coletor -> RPC BSC -> PostgreSQL <- API FastAPI <- Cliente/Swagger
 -> PostgreSQL instalado e rodando (localmente ou via Docker)
 -> Acesso a internet (para os RPCs da BSC)
 -> pip e venv disponiveis
+
 
  Configuração:
 
