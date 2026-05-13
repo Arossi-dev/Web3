@@ -83,11 +83,13 @@ GRANT ALL PRIVILEGES ON DATABASE monitor TO meuuser;
 Estrutura:
 
 [Coletor.py] -> [RPC BSC] -> [PostgreSQL] <- [API FastAPI] <- [Cliente/Swagger]
-     │              │              │               │
-     │              │              │               └── Endpoints REST
-     │              │              └── Tabela balances
-     │              └── Fallback entre múltiplos RPCs
-     └── Execução manual ou agendada
+   
+     
+(coletor.py -> execução manual ou agendada) 
+(RCP BSC -> Fallback entre multiplos RPCs)                
+(PostgreSQL -> Tabela balances) |
+(API FastAPI -> Endpoints REST)
+(Cliente/Swagger)
 
 
 
