@@ -1,6 +1,6 @@
 Projeto 2 - Coletor de saldos BSC + PostgreSQL + API FastAPI
 
-Este projeto coleta saldos de tokens BEP-20 de carteiras públicas, armazena os dados em PostgreSQL e oferece uma API REST para consulta.
+Esse projeto coleta saldos de tokens BEP-20 de carteiras públicas, armazena os dados em PostgreSQL e oferece uma API REST para consulta.
 
  Funcionalidades:
 
@@ -27,7 +27,7 @@ Este projeto coleta saldos de tokens BEP-20 de carteiras públicas, armazena os 
 
  Arquitetura do sistema:
 
-Coletor -> RPC BSC -> PostgreSQL -> API FastAPI -> Cliente/Swagger
+Coletor -> RPC BSC -> PostgreSQL <- API FastAPI <- Cliente/Swagger
 
 -> O coletor é um script Python que consulta a blockchain via web3.py e insere os saldos no banco de dados
 -> O banco guarda todas as coletas com timestamp, permitindo consultas históricas
@@ -79,17 +79,6 @@ GRANT ALL PRIVILEGES ON DATABASE monitor TO meuuser;
 
 
 (Nota: A porta padrão do PostgreSQL e 5432, mas o seu cluster ativo pode estar em 5433. Ajuste conforme sua instalacao.)
-
-Estrutura:
-
-[Coletor.py] -> [RPC BSC] -> [PostgreSQL] <- [API FastAPI] <- [Cliente/Swagger]
-   
-     
-(coletor.py -> execução manual ou agendada) 
-(RCP BSC -> Fallback entre multiplos RPCs)                
-(PostgreSQL -> Tabela balances) |
-(API FastAPI -> Endpoints REST)
-(Cliente/Swagger)
 
 
 
