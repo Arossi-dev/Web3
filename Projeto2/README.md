@@ -78,7 +78,7 @@ sudo -u postgres psql -p 5433
 
 Dentro do psql, execute:
 
-CREATE USER meuuser WITH PASSWORD 'minhasenha';
+CREATE USER meuuser WITH PASSWORD 'minhasenha';   (nesse projeto foi usado USER "meuuser" e PASSWORD "123456")
 CREATE DATABASE monitor OWNER meuuser;
 GRANT ALL PRIVILEGES ON DATABASE monitor TO meuuser;
 
@@ -89,7 +89,7 @@ GRANT ALL PRIVILEGES ON DATABASE monitor TO meuuser;
 
 5. Configure as variaveis de ambiente:
 
-Renomeie o arquivo de exemplo.
+Renomeie o arquivo de exemplo
 
 .env.example para .env
 
@@ -128,7 +128,15 @@ Dica: Para gerar dados históricos, execute o coletor varias vezes em momentos d
 
 2. Verificar os dados no banco (opcional):
 
-psql -h localhost -p 5433 -U meuuser -d monitor -c "SELECT * FROM balances;"
+-> psql -h localhost -p 5433 -U meuuser -d monitor -c "SELECT * FROM balances;"
+
+-> \d balances (verificar a estrutura da tabela)
+
+-> SELECT * FROM balances ORDER BY collected_at DESC LIMIT 10;   (verifica os ultimos 10 registros *pode aumentar o diminuir*)
+
+-> SELECT COUNT(*) FROM balances; (verificar quantos registros existem)
+
+-> \q  (sair do psql)
 
 
 
@@ -136,7 +144,7 @@ psql -h localhost -p 5433 -U meuuser -d monitor -c "SELECT * FROM balances;"
 
 python main.py
 
-O servidor sera iniciado em http://0.0.0.0:8000
+O servidor sera iniciado em http://0.0.0.0:8000 (http://localhost:8000)
 
 
 
@@ -148,7 +156,7 @@ Você verá os três endpoints documentados e poderá testa-los diretamente.
 
 
 
-5. Testar os endpoints com curl (opcional):
+5. Testar os endpoints com curl no CLI (opcional):
 
 Últimos saldos:
 curl http://localhost:8000/balances/latest
